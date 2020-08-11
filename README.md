@@ -4,7 +4,9 @@
 
 # 0x00 概述
 
-201909 vbulletion5(5.0.0-5.5.4)爆出rce漏洞，利用文件ajax/render/widget_php和post参数widgetConfig[code]可直接远程代码执行。
+201909 vbulletion5(5.0.0-5.5.4)爆出rce漏洞（CVE-2019-16759），利用文件ajax/render/widget_php和post参数widgetConfig[code]可直接远程代码执行。
+
+20200811，网上爆出CVE-2019-16759补丁可被绕过，利用ajax/render/widget_tabbedcontainer_tab_panel和构造post参数subWidgets[0][config][code]可直接远程代码执行。
 
 本工具支持单url检测，cmdshell，get web shell(写入一句话木马)，批量检测，批量getshell。
 
@@ -31,18 +33,22 @@ pip install requests
 
 ![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin01.png)
 
+![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin06.png)
+
 
 cmdshell: python vbulletin5-rce.py -u "http://www.xxx.com/" --cmdshell
 
 
 ![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin02.png)
 
+![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin07.png)
 
 单url getshell: python vbulletin5-rce.py -u "http://www.xxx.com/" --getshell
 
 
 ![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin03.png)
 
+![](https://github.com/theLSA/vbulletin5-rce/raw/master/demo/vbulletin08.png)
 
 批量检测: python vbulletin5-rce.py -f urls.txt
 
